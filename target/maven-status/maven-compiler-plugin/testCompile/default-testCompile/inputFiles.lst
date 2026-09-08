@@ -1,4 +1,7 @@
-D:\test\cucumbertest\src\test\java\steps\fabindiasteps.java
-D:\test\cucumbertest\src\test\java\steps\loginsteps.java
-D:\test\cucumbertest\src\test\java\runner\RunCuke.java
-D:\test\cucumbertest\src\test\java\steps\Hooks.java
+D:\mavenproject\cucumbertest\src\test\java\steps\AfterActions.java
+D:\mavenproject\cucumbertest\src\test\java\steps\loginsteps.java
+D:\mavenproject\cucumbertest\src\test\java\steps\fabindiasteps.java
+D:\mavenproject\cucumbertest\src\test\java\steps\BeforeActions.java
+D:\mavenproject\cucumbertest\src\test\java\steps\HomepageKapoorsteps.java
+D:\mavenproject\cucumbertest\src\test\java\runner\RunCuke.java
+D:\mavenproject\cucumbertest\src\test\java\steps\Hooks.java

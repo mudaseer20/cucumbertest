@@ -1,0 +1,23 @@
+Feature: Validate home page 
+
+
+      
+      
+@staging
+  Scenario: Validate home page is correct
+#  Given user launches the browser
+    Given user in home page "https://kapoorlampshades.com" for kapoor lamps
+    When user validates the text in the menu items
+    |  Chandeliers |
+    |Wall Lights |
+|Pendant Lights |
+|Lamps  |
+|Ceiling Lights  |
+|Lamp Shades  |
+|Outdoor Lights |
+|Lantern Lights |
+|Clearance Sale  |
+Then user clicks on chandeliers
+Then user validates the text is "CHANDELIERS"
+Then user scrolls till the last
+Then user validates count

@@ -1,4 +1,7 @@
 runner\RunCuke.class
 steps\fabindiasteps.class
+steps\AfterActions.class
+steps\HomepageKapoorsteps.class
 steps\loginsteps.class
+steps\BeforeActions.class
 steps\Hooks.class

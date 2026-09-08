@@ -17,6 +17,7 @@ import org.testng.Assert;
 import org.apache.poi.EncryptedDocumentException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -138,14 +139,38 @@ public class loginsteps {
 
 	@When("clicks on next button")
 	public void clicks_on_next_button() {
-		
+	
 		Hooks.driver.findElement(By.xpath("//button//span[text()]")).click();
 		
 	
 	  
 	}
-	
-
+	@Then("validate the below the menu")
+	public void menubutton(List<String>namelist) throws InterruptedException {
+		Thread.sleep(5000);
+		List<WebElement>menuElements=Hooks.driver.findElements(By.xpath("//span[contains(@class,'list-item')]//span[@class='nav-label']"));
+		
+	for(String expname:namelist) {
+		for(WebElement element:menuElements) {
+		
+			if(element.getText().trim().equalsIgnoreCase(expname)) {
+		      Reporter.log(element.getText());
+		      JavascriptExecutor js = (JavascriptExecutor) Hooks.driver;
+		      js.executeScript("arguments[0].click();", element);
+		      try {
+				Hooks.scenario.log("Successfully clicked on button."+element.getText());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+				 Thread.sleep(1700);
+				break;
+			}
+			
+		}
+	}
+	  
+	}
 	@Then("user closes the child window")
 	public void closeschildwindow() {
 		
@@ -204,6 +229,11 @@ public class loginsteps {
 	public void enterbutton() {
 		Hooks.driver.findElement(By.cssSelector("input[value='Yes']")).click();
 		}
+	
+	@Then("user clicks on {string} button in the menu")
+	public void clickmenu(String menu) {
+		Hooks.driver.findElement(By.xpath("//span[contains(@class,'mdc-list')]//span[contains(text(),'"+menu+"')]")).click();
+	}
 	
 
 	@And("clicks on next button in sign in page")
@@ -366,15 +396,39 @@ public class loginsteps {
 	        
 	        System.out.println(list.equals(actualItems));
 	        Assert.assertEquals(list, actualItems);
-	        
-	        
+	        Actions action = new Actions(Hooks.driver);
+	        action.sendKeys(Keys.ESCAPE).build().perform();
 	        
 	
 	       
 	      
 	        }
+	   
+	   @Then("user validates the text below {string} menu")
+	    public void valuesbelowmenuitems(String str,DataTable expectedDataTable) throws EncryptedDocumentException, IOException {
+	        // Option 1: asList() skips the top header row ("Name") and extracts values below it
+			WebDriverWait wait = new WebDriverWait(Hooks.driver, Duration.ofSeconds(10));
+
+		
+		   List<String> expectedItems = expectedDataTable.asList(String.class);
+
+	        // Locate the menu item elements on your web page
+	        // UPDATE THIS XPATH to target the specific list items under 'Your organization'
+	        List<WebElement> actualMenuElements = Hooks.driver.findElements(By.xpath("//span[contains(text(),'"+str+"')]//following::div[@id='menu-label']"));
+
+	        // Extract raw text values from the WebElements
+	        List<String> actualItems = new ArrayList<>();
+	        for (WebElement element : actualMenuElements) {
+	            actualItems.add(element.getText().trim());
+	        }
+	        System.out.println(actualItems);
+	        System.out.println(expectedItems);
+
+	        // Validate thalists are identical in content and order
+	        Assert.assertEquals(actualItems, expectedItems, "The organization menu items do not match!");
 	        
 	
 
 
+}
 }

@@ -1,1 +1,5 @@
+pages\locators\kapoorhome.class
+utility\SeleniumDriver.class
+pages\actions\Kapoorhomeactions.class
+pages\locators\Homepagelocators.class
 utility\Readexcel.class
