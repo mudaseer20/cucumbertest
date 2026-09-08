@@ -23,6 +23,9 @@ public WebElement textlamp;
 @FindBy(xpath="//a[contains(text(),'Chandeliers')]")
 public WebElement chand;
 
+@FindBy(xpath="//a[contains(text(),'Chandeliers')]")
+public WebElement chandone;
+
 @FindBy(xpath="(//div[@class='grid-product__title'])[last()]")
 public WebElement countbulb;
 @FindBy(xpath="//span[contains(text(),'Next')]")
