@@ -1,4 +1,4 @@
-Feature: Validate home page 
+Feature: Validate home page in lamps
 
 
       
