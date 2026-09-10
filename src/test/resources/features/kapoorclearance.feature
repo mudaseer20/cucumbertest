@@ -17,8 +17,11 @@ Feature: Validate home page in lamps
 |Outdoor Lights |
 |Lantern Lights |
 |Clearance Sale  |
+Then user clicks on clearance sale
+Then user validates the text is "Sale"
+Then user scrolls till the last
+Then user validates count of bulb
 Then user clicks on chandeliers
 Then user validates the text is "CHANDELIERS"
 Then user scrolls till the last
-Then user validates count
-
+Then user validates count of bulb

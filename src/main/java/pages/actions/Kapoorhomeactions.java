@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
@@ -34,38 +35,137 @@ public class Kapoorhomeactions {
 		
 	}
 	
-	public int clicknextpagevalidatecount() {
-		int cn=0,count=0,counts=0;
-		List<WebElement> text = null;
-		try {
-		if(homepagelocators.next.isDisplayed()){
-		 text = homepagelocators.counttext;
-			
-			count=text.size();
-			
-		
-			Actions actions=new Actions(SeleniumDriver.getDriver());
-			actions.moveToElement(homepagelocators.next).click().perform();
-			actions.scrollToElement(homepagelocators.countbulb).perform();;
-			homepagelocators.next.click();
-		
-		}
-		else {
-			
-			System.out.println("dont click");
-		}
+	public void clickclearance() throws InterruptedException {
+		Actions actions=new Actions(SeleniumDriver.getDriver());
+		actions.moveToElement(homepagelocators.ClearanceSale).click().perform();
+		Thread.sleep(9000);
+		actions.sendKeys(Keys.ESCAPE).perform();
 	
 	
-		
-		}
-		catch(NoSuchElementException e) {
-		 counts=text.size();
-		}
-		cn=cn+count+counts;
-		return cn;
 		
 		
 	}
+	
+	public int getcount() {
+		String prodtext=homepagelocators.products.getText();
+		int value=Integer.parseInt(prodtext.split(" ")[0]);
+		
+		return value;
+		
+	}
+
+    
+    public int validatecount() {
+    
+    	WebElement nextbutton;
+        List<String> lightsName = new ArrayList();
+        
+    	for(WebElement names:homepagelocators.counttext) {
+    		lightsName.add(names.getText());
+    	}
+    	Actions actions=new Actions(SeleniumDriver.getDriver());
+		actions.scrollToElement(homepagelocators.countbulb).perform();
+		boolean val = false;
+		try {
+    	 val=homepagelocators.next.isDisplayed();
+		}
+		catch(Exception e) {
+			
+		}
+    	while(val) {
+    	
+    		
+    			actions=new Actions(SeleniumDriver.getDriver());
+        		actions.scrollToElement(homepagelocators.countbulb).perform();
+        		if(homepagelocators.nextlength.size()>0) {
+    		homepagelocators.next.click();
+        		}
+        		if(homepagelocators.nextlength.size()==0){
+        			for(WebElement names:homepagelocators.counttext) {
+        				lightsName.add(names.getText());
+        			}
+        			break;
+        		}
+        		
+    		for(WebElement names:homepagelocators.counttext) {
+        		lightsName.add(names.getText());
+        	}
+    		
+    		
+    		
+    	
+    	try {
+    	 nextbutton= homepagelocators.next;
+    	}
+    	catch(Exception e) {
+    		break;
+    	}
+    	}
+//		for(WebElement names:homepagelocators.counttext) {
+//		lightsName.add(names.getText());
+    	
+    	   int actualCount = lightsName.size();
+           System.out.println("Actual light count : "+actualCount);
+           return actualCount;
+	}
+    
+     
+      
+    
+    
+    
+//	public int clicknextpagevalidatecount() throws InterruptedException {
+//		 int count,counts=0,cn=0;
+//		count=0;
+//		
+//		Actions actions=new Actions(SeleniumDriver.getDriver());
+//		actions.scrollToElement(homepagelocators.countbulb).perform();
+//		
+//		
+//		List<WebElement> text = null;
+//		
+//
+//		try {
+//			
+//	do{
+//	
+//			
+//	
+//		 text = homepagelocators.counttext;
+//		 count=text.size();
+//		
+//		
+//	
+////			actions.moveToElement(homepagelocators.next.get(0).click())
+////	
+////		homepagelocators.next.click();
+//		((JavascriptExecutor) SeleniumDriver.getDriver()).executeScript("arguments[0].scrollIntoView(true);",homepagelocators.countbulb);
+//		actions.moveToElement(homepagelocators.countbulb).perform();
+//		Thread.sleep(2300);
+//		
+//		 text = homepagelocators.counttext;
+//
+//	
+//	
+//		
+//		//}
+//	//while(homepagelocators.next.isDisplayed());
+////		else {
+////			
+////			System.out.println("dont click");
+////		}
+////	
+//	
+//		
+//	//	}
+//		catch(NoSuchElementException e) {
+//			 counts=text.size();
+//		}
+//		cn=cn+count+counts;
+//		return cn;
+//		
+//		
+//	}
 	public String getText() {
 		String lampstext=homepagelocators.textlamp.getText();
 		return lampstext;

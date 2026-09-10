@@ -28,11 +28,27 @@ public class HomepageKapoorsteps{
         kh.scrolltillast();
 		
 	}
-	@Then("user validates count")
-	public void validatecount() throws InterruptedException {
+	
+	
+//	@Then("user validates count")
+//	public void validatecount() throws InterruptedException {
+//		Kapoorhomeactions kh=new Kapoorhomeactions();
+//		int count=kh.clicknextpagevalidatecount();
+//		System.out.println(count);
+//		int co=kh.getcount();
+//		System.out.println(co);
+//		Assert.assertEquals(count, co);
+//		
+	//}
+	
+	@Then("user validates count of bulb")
+	public void validatecountbulb() throws InterruptedException {
 		Kapoorhomeactions kh=new Kapoorhomeactions();
-		int count=kh.clicknextpagevalidatecount();
+		int count=kh.validatecount();
 		System.out.println(count);
+		int co=kh.getcount();
+		System.out.println(co);
+		Assert.assertEquals(count, co);
 		
 	}
 
@@ -46,7 +62,12 @@ public class HomepageKapoorsteps{
 		kh.movemousependantlights();
 		
 	}
-
+	@Then("user clicks on clearance sale")
+	public void clickclearance() throws InterruptedException {
+		Kapoorhomeactions kh=new Kapoorhomeactions();
+		kh.clickclearance();
+		
+	}
 	@Then("user validates the text is {string}")
 	public void getlamptext(String expectedText) {
 		Kapoorhomeactions kh=new Kapoorhomeactions();

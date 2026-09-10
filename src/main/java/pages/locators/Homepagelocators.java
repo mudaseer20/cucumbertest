@@ -23,14 +23,24 @@ public WebElement textlamp;
 @FindBy(xpath="//a[contains(text(),'Chandeliers')]")
 public WebElement chand;
 
+@FindBy(xpath="//a[contains(text(),'Clearance Sale')]")
+public WebElement ClearanceSale;
+
+
+
 @FindBy(xpath="//a[contains(text(),'Chandeliers')]")
 public WebElement chandone;
+@FindBy(xpath="//span[contains(text(),'Next')]/..")
+public List<WebElement>  nextlength;
 
-
-@FindBy(xpath="//span[contains(text(),'Next')]")
+@FindBy(xpath="//span[contains(text(),'Next')]/..")
 public WebElement next;
 @FindBy(xpath="(//div[@class='grid-product__title'])[last()]")
 public WebElement countbulb;
+@FindBy(xpath="//div[@class='pagination']//span[@class='page current']")
+public WebElement pagelist;
+
+
 }
 
 
