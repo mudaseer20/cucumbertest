@@ -25,3 +25,8 @@ Then user clicks on chandeliers
 Then user validates the text is "CHANDELIERS"
 Then user scrolls till the last
 Then user validates count of bulb
+Then user clicks on outdoor lights
+Then user validates the text is "OUTDOOR LIGHTS"
+Then user scrolls till the last
+Then user validates count of bulb
+Then actor enters the text "Lamp Shades" in the searchbox
