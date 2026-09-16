@@ -26,6 +26,13 @@ public WebElement chand;
 @FindBy(xpath="//a[contains(text(),'Clearance Sale')]")
 public WebElement ClearanceSale;
 
+@FindBy(xpath="//a[contains(text(),'Outdoor Lights')]")
+public WebElement Outdoor;
+
+@FindBy(xpath="(//input[@id='Search'])[1]")
+public WebElement search;
+
+
 
 
 @FindBy(xpath="//a[contains(text(),'Chandeliers')]")

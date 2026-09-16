@@ -51,8 +51,15 @@ public class HomepageKapoorsteps{
 		Assert.assertEquals(count, co);
 		
 	}
-
 	
+	
+
+	@Then("user clicks on outdoor lights")
+	public void clickoutdoor() {
+		Kapoorhomeactions kh=new Kapoorhomeactions();
+	kh.clickoutdoor();
+		
+	}
 
 	
 	
@@ -66,6 +73,15 @@ public class HomepageKapoorsteps{
 	public void clickclearance() throws InterruptedException {
 		Kapoorhomeactions kh=new Kapoorhomeactions();
 		kh.clickclearance();
+		
+	}
+	
+	@Then("actor enters the text {string} in the searchbox")
+	public void entertext(String text){
+		Kapoorhomeactions kh=new Kapoorhomeactions();
+	kh.entertext(text);
+		
+		
 		
 	}
 	@Then("user validates the text is {string}")

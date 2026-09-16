@@ -34,7 +34,16 @@ public class Kapoorhomeactions {
 		
 		
 	}
+	public void clickoutdoor() {
+		 CustomDriver c=new  CustomDriver();
+		 c.elementClick(homepagelocators.Outdoor, "clicked");
+	}
 	
+	public void entertext(String text) {
+		 CustomDriver c=new  CustomDriver();
+		 c.sendData(homepagelocators.search,text, "text", true);
+		
+	}
 	public void clickclearance() throws InterruptedException {
 	Actions actions=new Actions(SeleniumDriver.getDriver());
 		 CustomDriver c=new  CustomDriver();
