@@ -13,7 +13,7 @@ import org.openqa.selenium.support.PageFactory;
 
 
 import pages.locators.Homepagelocators;
-
+import utility.CustomDriver;
 import utility.SeleniumDriver;
 
 public class Kapoorhomeactions {
@@ -36,9 +36,11 @@ public class Kapoorhomeactions {
 	}
 	
 	public void clickclearance() throws InterruptedException {
-		Actions actions=new Actions(SeleniumDriver.getDriver());
-		actions.moveToElement(homepagelocators.ClearanceSale).click().perform();
-		Thread.sleep(9000);
+	Actions actions=new Actions(SeleniumDriver.getDriver());
+		 CustomDriver c=new  CustomDriver();
+		 c.elementClick(homepagelocators.ClearanceSale, "clicked");
+//		actions.moveToElement(homepagelocators.ClearanceSale).click().perform();
+	Thread.sleep(9000);
 		actions.sendKeys(Keys.ESCAPE).perform();
 	
 	
