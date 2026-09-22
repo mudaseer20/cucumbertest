@@ -21,6 +21,15 @@ public class vasesteps {
 		
 	}
 	
+	@Then("validate the links of gifts for {string}")
+	public void linkstext(String text) {
+		Vaseshomepageactions v=new Vaseshomepageactions();
+		List<String> val = v.getTag(text);
+		System.out.println(val+"------>");
+	
+		
+	}
+	
 	@Then("user clicks on Gifts")
 	public void clickgift() throws InterruptedException {
 		Vaseshomepageactions v=new Vaseshomepageactions();

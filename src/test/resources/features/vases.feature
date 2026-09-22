@@ -11,4 +11,6 @@ Feature: Validate home page in vases
    Then user validate text is "Gifting"  
    Then get the text of prices
    Then get the text of vases
+   Then validate the links of gifts for "href"
+   Then validate the links of gifts for "id"
    

@@ -13,7 +13,10 @@ public class HomepageVaselocators {
     
     @FindBy(xpath="//h3[contains(@class,'heading')]/a[1]")
     public List<WebElement> pricestext;
-	
+    
+    @FindBy(xpath="//nav[contains(@class,'menu')]//a/span/../..//*[@href]")
+    public List<WebElement> menulinks;
+   
 	@FindBy(xpath="//span[text()='Gifts']")
 	public WebElement gifts;
 }

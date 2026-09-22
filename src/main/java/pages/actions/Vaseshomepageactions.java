@@ -24,21 +24,19 @@ public class Vaseshomepageactions {
 	
 
 	}
-	 List<String>prices=new ArrayList();
-	public List<String> getTextprice() {
+	 List<String>tags=new ArrayList();
+	public List<String> getTag(String text) {
 		 CustomDriver c=new  CustomDriver();
-		 List<WebElement> price = c.getelement(homepagevase.prices, "not found");
+		 List<WebElement> tagtext = c.getelement(homepagevase.menulinks, "not found");
 		
-		 for(int i=0;i<price.size();i++) {
+		 for(int i=0;i<tagtext.size();i++) {
 		
 			 
-			 prices.add(price.get(i).getText());
+			 tags.add(tagtext.get(i).getAttribute(text));
 		 }
 
-		 return prices;
-		 
-     
-        
+		 return tags;
+	
 
 	}
 	
@@ -66,5 +64,22 @@ public class Vaseshomepageactions {
 		
 		
 	}
+	 List<String>prices=new ArrayList();
+	public List<String> getTextprice() {
+		 CustomDriver c=new  CustomDriver();
+		 List<WebElement> price = c.getelement(homepagevase.prices, "not found");
+		
+		 for(int i=0;i<price.size();i++) {
+		
+			 
+			 prices.add(price.get(i).getText());
+		 }
 
+		 return prices;
+		 
+    
+       
+
+
+}
 }
