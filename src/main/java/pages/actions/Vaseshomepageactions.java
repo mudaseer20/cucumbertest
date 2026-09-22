@@ -17,6 +17,13 @@ public class Vaseshomepageactions {
 		this.homepagevase =new HomepageVaselocators();
 		PageFactory.initElements(SeleniumDriver.getDriver(),homepagevase);
 	}
+	
+	public void clickgift() {
+		 CustomDriver c=new  CustomDriver();
+		 c.elementClick(homepagevase.gifts, "message");
+		
+		
+	}
 	public String getText() {
 		 CustomDriver c=new  CustomDriver();
 		String text=c.getText(homepagevase.vase, "text");
@@ -58,12 +65,7 @@ public class Vaseshomepageactions {
 
 	}
 	
-	public void clickgift() {
-		 CustomDriver c=new  CustomDriver();
-		 c.elementClick(homepagevase.gifts, "message");
-		
-		
-	}
+
 	 List<String>prices=new ArrayList();
 	public List<String> getTextprice() {
 		 CustomDriver c=new  CustomDriver();

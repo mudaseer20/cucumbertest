@@ -13,4 +13,5 @@ Feature: Validate home page in vases
    Then get the text of vases
    Then validate the links of gifts for "href"
    Then validate the links of gifts for "id"
+   #   Then validate the links of gifts for "id"
    
