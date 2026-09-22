@@ -32,7 +32,6 @@ public class CustomDriver {
     public void javascriptClick(WebElement element, String info) {
         try {
             js.executeScript("arguments[0].click();", element);
-        
         } catch (Exception e) {
         
         }
@@ -43,7 +42,7 @@ public class CustomDriver {
 	            if (clear) {
 	                element.clear();
 	            }
-	            //Util.sleep(1000, "Waiting Before Entering Data");
+	           
 	            element.sendKeys(input);
 	        
 	        } catch (Exception e) {
