@@ -2,6 +2,7 @@ package pages.actions;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -43,6 +44,32 @@ public class Kapoorhomeactions {
 		 CustomDriver c=new  CustomDriver();
 		 c.sendData(homepagelocators.search,text, "text", true);
 		
+	}
+	
+	public void entertext(CharSequence... inputs) {
+		 CustomDriver c=new  CustomDriver();
+		 c.sendData(homepagelocators.search, "test", false, inputs);
+		
+		
+	}
+public List<WebElement> getPriceText() throws InterruptedException {
+	 CustomDriver c=new  CustomDriver();
+     Thread.sleep(5000);
+	 String pricesString = homepagelocators.price.stream()
+			    .map(element -> element.getText()) // Extracts the text from each WebElement
+			    .collect(Collectors.joining("  "));
+	 System.out.println(pricesString);
+//     pricesString="xpath=>"+pricesString;
+	List<WebElement>price=c.getelement(pricesString, "getlist");
+	
+	return price;
+}
+
+  
+	public void clicksort(String text) {
+		 CustomDriver c=new  CustomDriver();
+//		 c.elementClick(homepagelocators.sort,"clicked");
+		 c.selectOption(homepagelocators.sort, text);
 	}
 	public void clickclearance() throws InterruptedException {
 	Actions actions=new Actions(SeleniumDriver.getDriver());
@@ -89,7 +116,8 @@ public class Kapoorhomeactions {
     			actions=new Actions(SeleniumDriver.getDriver());
         		actions.scrollToElement(homepagelocators.countbulb).perform();
         		if(homepagelocators.nextlength.size()>0) {
-    		homepagelocators.next.click();
+        			 CustomDriver c=new  CustomDriver();
+        			 c.elementClick(homepagelocators.next, "clicked");
         		}
         		if(homepagelocators.nextlength.size()==0){
         			for(WebElement names:homepagelocators.counttext) {
@@ -178,15 +206,40 @@ public class Kapoorhomeactions {
 //		
 //	}
 	public String getText() {
+		 CustomDriver c=new  CustomDriver();
+		 c.scroll(homepagelocators.textlamp);
 		String lampstext=homepagelocators.textlamp.getText();
 		return lampstext;
 
-   
+	}
+	String pricetext;
+	public String getprice() throws InterruptedException {
+		 CustomDriver c=new  CustomDriver();
+		 c.scroll(homepagelocators.pricetext);
+			Thread.sleep(4000);
+	    pricetext=homepagelocators.pricelamp.getText();
+	    System.out.println(pricetext+"is price");
+		return pricetext;
 		
+	}
+	public String getpricedetail() {
+		
+		 String pricetexts=homepagelocators.pricelampview.getText();
+		 return pricetexts;
+	
+	}
+	public void clickbulb() {
+		 CustomDriver c=new  CustomDriver();
+	
+		 c.javascriptClick(homepagelocators.pricelamp, "clicked");
 		
 	}
 	
+	
+	
 	public void scrolltillast() {
+		
+		
 		Actions actions=new Actions(SeleniumDriver.getDriver());
 		actions.scrollToElement(homepagelocators.countbulb).perform();;
 	

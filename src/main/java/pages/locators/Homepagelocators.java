@@ -20,6 +20,16 @@ public List<WebElement> counttext;
 @FindBy(xpath="//h1")
 public WebElement textlamp;
 
+@FindBy(xpath="(//span[contains(@class,'current')])[1]")
+public WebElement pricelamp;
+
+@FindBy(xpath="//span[text()='Price']")
+public WebElement pricetext;
+
+@FindBy(css="span.product__price")
+public WebElement pricelampview;
+
+
 @FindBy(xpath="//a[contains(text(),'Chandeliers')]")
 public WebElement chand;
 
@@ -40,12 +50,19 @@ public WebElement chandone;
 @FindBy(xpath="//span[contains(text(),'Next')]/..")
 public List<WebElement>  nextlength;
 
+@FindBy(xpath="//span[contains(@class,'current')]")
+public List<WebElement>  price;
+
 @FindBy(xpath="//span[contains(text(),'Next')]/..")
 public WebElement next;
 @FindBy(xpath="(//div[@class='grid-product__title'])[last()]")
 public WebElement countbulb;
 @FindBy(xpath="//div[@class='pagination']//span[@class='page current']")
 public WebElement pagelist;
+@FindBy(id="SortBy")
+public WebElement sort;
+
+
 
 
 }

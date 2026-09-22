@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
@@ -51,8 +52,62 @@ public class HomepageKapoorsteps{
 		Assert.assertEquals(count, co);
 		
 	}
+	@Then("user validate text {string}")
+	public void clicksortby(String text) throws InterruptedException {
+		Kapoorhomeactions kh=new Kapoorhomeactions();
+		kh.clicksort(text);
+		
+	}
+String price;
+	@Then("user gets the text of the bulb")
+	public void gettext() throws InterruptedException {
+		Kapoorhomeactions kh=new Kapoorhomeactions();
+	
+		 price=kh.getprice();
+		System.out.println(price+"is price");
+	
+		
+	}
+	String pricedetail;
+	@Then("user gets the text of the bulb in detail page")
+	public void gettextdetail() {
+		Kapoorhomeactions kh=new Kapoorhomeactions();
+		
+		pricedetail=kh.getpricedetail();
+		
+		Assert.assertEquals(price, pricedetail);
+	
+		
+	}
+	@Then("user clicks on bulb")
+	public void clickbulb() {
+		Kapoorhomeactions kh=new Kapoorhomeactions();
+		kh.clickbulb();
 	
 	
+		
+	}
+	
+	
+	
+	@Then("user gets the text and stores in an array")
+	public void storeArray() throws InterruptedException {
+		Kapoorhomeactions kh=new Kapoorhomeactions();
+		
+		try {
+	      List<WebElement>st=kh.getPriceText();
+		}
+	      catch (ArrayIndexOutOfBoundsException e) {
+	    	    System.err.println("Caught an exception: " + e.getMessage());
+	    	    // Handle the issue, fallback to a default value, or log the error
+	    	}
+	      
+		
+	
+		
+		
+	}
+
 
 	@Then("user clicks on outdoor lights")
 	public void clickoutdoor() {
@@ -67,6 +122,14 @@ public class HomepageKapoorsteps{
 	public void clickchandelier() throws InterruptedException {
 		Kapoorhomeactions kh=new Kapoorhomeactions();
 		kh.movemousependantlights();
+		
+	}
+	@Then("actor clicks on enter button")
+	public void clickkey() {
+		
+		Kapoorhomeactions kh=new Kapoorhomeactions();
+		kh.entertext(Keys.ENTER);
+		
 		
 	}
 	@Then("user clicks on clearance sale")
