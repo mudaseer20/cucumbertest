@@ -90,13 +90,13 @@ public class loginsteps {
 	   
 	}
 
-	@When("user clicks on {string} button")
-	public void user_clicks_button(String str) throws InterruptedException {
-		String textvalue="//span[contains(text(),'"+str+"')]/..";
-		 WebElement btn=Hooks.driver.findElement(By.xpath(textvalue));
-		 btn.click();
-		 Thread.sleep(1200);
-	}
+	// @When("user clicks on {string} button")
+	// public void user_clicks_button(String str) throws InterruptedException {
+	// 	String textvalue="//span[contains(text(),'"+str+"')]/..";
+	// 	 WebElement btn=Hooks.driver.findElement(By.xpath(textvalue));
+	// 	 btn.click();
+	// 	 Thread.sleep(1200);
+	// }
 	@When("user switches to {string} window")
 	public void userswitchtochildwindow(String str)
 	{
