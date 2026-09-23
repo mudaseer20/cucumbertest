@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import org.openqa.selenium.StaleElementReferenceException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
