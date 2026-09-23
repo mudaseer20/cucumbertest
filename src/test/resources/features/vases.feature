@@ -16,6 +16,7 @@ Feature: Validate home page in vases
    Then get the text of categories
    Then user clicks on checkbox for "Bowls"
    Then user clicks on "Remove all" button
-
+   Then user clicks on checkbox for "Bowls"
+   Then user clicks on "Remove all" button
                           
    

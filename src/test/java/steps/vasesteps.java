@@ -65,18 +65,7 @@ public void clickbutton(String text) {
 	
 
 }
-	
-	@Then("get the text of categories")
-	public void gettextcategories() {
-		Vaseshomepageactions v=new Vaseshomepageactions();
-		List<String> textcategory = v.getTextcategory();
-		System.out.println(textcategory);
-	   
-	
-	
-	
 
-}
 	
 	@Then("get the text of vases")
 	public void gettextvase() {
@@ -89,6 +78,16 @@ public void clickbutton(String text) {
 	    
 	
 	
+
+}
+	
+	
+	@Then("get the text of categories")
+	public void gettextcategories() {
+		Vaseshomepageactions v=new Vaseshomepageactions();
+		List<String> textcategory = v.getTextcategory();
+		System.out.println(textcategory);
+	  
 
 }
 	

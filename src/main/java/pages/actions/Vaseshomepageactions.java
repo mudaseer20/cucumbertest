@@ -32,6 +32,15 @@ public class Vaseshomepageactions {
 
 	}
 	
+	public void clickcheckbox(String text) {
+		 CustomDriver c=new  CustomDriver();
+		 c.elementClick(homepagevase.checkboxes, text);
+		 
+		
+		
+		
+	}
+	
 	public void clicklink(String text) {
 		 CustomDriver c=new  CustomDriver();
 		 c.elementClick(homepagevase.roles, text);
@@ -41,14 +50,7 @@ public class Vaseshomepageactions {
 		
 	}
 	
-	public void clickcheckbox(String text) {
-		 CustomDriver c=new  CustomDriver();
-		 c.elementClick(homepagevase.checkboxes, text);
-		 
-		
-		
-		
-	}
+
 	 List<String>tags=new ArrayList();
 	public List<String> getTag(String text) {
 		 CustomDriver c=new  CustomDriver();
