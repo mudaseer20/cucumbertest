@@ -13,5 +13,9 @@ Feature: Validate home page in vases
    Then get the text of vases
    Then validate the links of gifts for "href"
    Then validate the links of gifts for "id"
-   #   Then validate the links of gifts for "id"
+   Then get the text of categories
+   Then user clicks on checkbox for "Bowls"
+   Then user clicks on "Remove all" button
+
+                          
    

@@ -20,6 +20,22 @@ public class vasesteps {
 	
 		
 	}
+
+	@Then("user clicks on checkbox for {string}")
+	public void clickcheckbox(String text) {
+		Vaseshomepageactions v=new Vaseshomepageactions();
+		v.clickcheckbox(text);
+	
+	
+		
+	}
+@Then("user clicks on {string} button")
+public void clickbutton(String text) {
+	Vaseshomepageactions v=new Vaseshomepageactions();
+	v.clicklink(text);
+	
+}
+
 	
 	@Then("validate the links of gifts for {string}")
 	public void linkstext(String text) {
@@ -44,6 +60,18 @@ public class vasesteps {
 		Vaseshomepageactions v=new Vaseshomepageactions();
 		List<String> val = v.getTextprice();
 		System.out.println(val+"------>");
+	
+	
+	
+
+}
+	
+	@Then("get the text of categories")
+	public void gettextcategories() {
+		Vaseshomepageactions v=new Vaseshomepageactions();
+		List<String> textcategory = v.getTextcategory();
+		System.out.println(textcategory);
+	   
 	
 	
 	

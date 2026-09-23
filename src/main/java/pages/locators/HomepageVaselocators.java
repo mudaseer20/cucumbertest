@@ -19,6 +19,15 @@ public class HomepageVaselocators {
     
     @FindBy(xpath="//nav[contains(@class,'menu')]//a/span/../..//*[@href]")
     public List<WebElement> menulinks;
-   
+    
+    @FindBy(xpath="//span[@class='facet-checkbox__text']")
+    public List<WebElement> checkboxes;
+    @FindBy(css=".facet-checkbox__text")
+    public List<WebElement> categorieslink;
+    
+    @FindBy(xpath="//span")
+    public List<WebElement> roles;
+    
+    
 
 }

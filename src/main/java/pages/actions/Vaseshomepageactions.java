@@ -31,6 +31,24 @@ public class Vaseshomepageactions {
 	
 
 	}
+	
+	public void clicklink(String text) {
+		 CustomDriver c=new  CustomDriver();
+		 c.elementClick(homepagevase.roles, text);
+		 
+		
+		
+		
+	}
+	
+	public void clickcheckbox(String text) {
+		 CustomDriver c=new  CustomDriver();
+		 c.elementClick(homepagevase.checkboxes, text);
+		 
+		
+		
+		
+	}
 	 List<String>tags=new ArrayList();
 	public List<String> getTag(String text) {
 		 CustomDriver c=new  CustomDriver();
@@ -81,6 +99,25 @@ public class Vaseshomepageactions {
 		 
     
        
+
+
+}
+	
+	 List<String>categories=new ArrayList();
+	public List<String> getTextcategory() {
+		 CustomDriver c=new  CustomDriver();
+		 List<String> price = c.getelement(homepagevase.categorieslink);
+		
+	
+			 for (String name :price) {
+				 categories.add(name);
+
+		 }
+
+		 return categories;
+		 
+   
+      
 
 
 }

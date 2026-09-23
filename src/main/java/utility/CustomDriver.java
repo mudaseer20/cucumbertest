@@ -1,12 +1,17 @@
 package utility;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CustomDriver {
 	JavascriptExecutor js;
@@ -20,6 +25,8 @@ public class CustomDriver {
 			
 		}
 	}
+	
+
 	public void elementClick(WebElement element,String info) {
 		try {
 			element.click();
@@ -158,6 +165,52 @@ public List<WebElement> getelement(List<WebElement> el,String info){
 	}
 	
 	return elementlist;
+	
+}
+
+public List<String> getelement(List<WebElement> el){
+	List<String> textlist=new ArrayList<>();
+	
+	  if (el == null) {
+	        return textlist;
+	    }
+	
+	try {
+		textlist=el.stream().map(WebElement::getText)
+	    .collect(Collectors.toList());
+	}
+	catch(Exception e) {
+		
+		e.printStackTrace();
+	}
+	
+	return textlist;
+	
+}
+
+public void elementClick(List<WebElement> el,String text) {
+	try {
+	       WebElement elementToClick = el.stream()
+	               .filter(product -> product.getText().trim().toLowerCase().contains(text.toLowerCase()))
+	               .findFirst()
+	               .orElseThrow(() -> new NoSuchElementException("Element with text '" + text + "' not found in the list."));
+	       WebDriverWait wait = new WebDriverWait(SeleniumDriver.getDriver(), Duration.ofSeconds(10));
+	     wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(elementToClick)));
+	           elementToClick.click();
+	}
+	catch(Exception e) {
+		  WebElement elementToClick = el.stream()
+	               .filter(product -> product.getText().trim().toLowerCase().contains(text.toLowerCase()))
+	               .findFirst()
+	               .orElseThrow(() -> new NoSuchElementException("Element with text '" + text + "' not found in the list."));
+	       WebDriverWait wait = new WebDriverWait(SeleniumDriver.getDriver(), Duration.ofSeconds(10));
+	     wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(elementToClick)));
+	           elementToClick.click();
+	
+	}
+	
+	
+	
 	
 }
 }
