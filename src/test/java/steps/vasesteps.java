@@ -1,9 +1,11 @@
 package steps;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.testng.Assert;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
 
 import pages.actions.Vaseshomepageactions;
@@ -90,6 +92,47 @@ public void clickbutton(String text) {
 	  
 
 }
+
+	@Then("user validates the colors for {string}")
+	public void chooseopt(String att,DataTable expectedDataTable) {
+		
+		Vaseshomepageactions v=new Vaseshomepageactions();
+		List<String> colors = v.validateColor(att);
+		System.out.println(colors);
+		  List<String> expectedItems = expectedDataTable.asList(String.class);
+	        List<String> actualItems = new ArrayList<>();
+	        for (String element :colors) {
+	            actualItems.add(element);
+	        }
+	        System.out.println(actualItems);
+	        System.out.println(expectedItems);
+	        Assert.assertEquals(actualItems, expectedItems, "The organization menu items do not match!");
+		
+
+	
+		
+		
+		
+	}
+	
+	@Then("user clicks on choose options")
+		
+		public void chooseopt() throws InterruptedException {
+		
+		Vaseshomepageactions v=new Vaseshomepageactions();
+		v.clickgiftoptions();
+		
+	}
+	
+	@Then("user clicks on color option")
+	public void clickcolor() {
+		Vaseshomepageactions v=new Vaseshomepageactions();
+		v.validateColorclick();
+		
+		
+		
+		
+	}
 	
 	
 }

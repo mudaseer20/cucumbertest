@@ -25,6 +25,17 @@ public class HomepageVaselocators {
     
     @FindBy(xpath="//span[@class='facet-checkbox__text']")
     public List<WebElement> checkboxes;
+    
+    @FindBy(xpath="//input[@name='Colour']")
+    public List<WebElement> colors;
+    @FindBy(xpath="//input[@name='Colour']//following::label[1]")
+    public List<WebElement>color;
+    
+    @FindBy(xpath="//h1/following::button[@aria-label='Close'][1]")
+    public WebElement close;
+    
+    @FindBy(xpath="//button[contains(text(),'options')]")
+    public WebElement options;
     @FindBy(css=".facet-checkbox__text")
     public List<WebElement> categorieslink;
     

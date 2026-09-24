@@ -14,9 +14,19 @@ Feature: Validate home page in vases
    Then validate the links of gifts for "href"
    Then validate the links of gifts for "id"
    Then get the text of categories
+   #Then user clicks on checkbox for "Bowls"
+   #Then user clicks on "Remove all" button
+   #Then user clicks on checkbox for "Decor"
+   #Then user clicks on "Remove all" button
+   #Then user clicks on checkbox for "Cake Stands"
+   #Then user clicks on "Remove all" button
    Then user clicks on checkbox for "Bowls"
-   Then user clicks on "Remove all" button
-   Then user clicks on checkbox for "Bowls"
-   Then user clicks on "Remove all" button
-                          
+   Then user clicks on choose options
+   Then user validates the colors for "value"
+  | Clear + Gold |
+  |Clear + Bronze|
+  | Purple + Gold|
+   
+                        
+  Then user clicks on color option
    

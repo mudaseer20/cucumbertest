@@ -24,6 +24,46 @@ public class Vaseshomepageactions {
 		
 		
 	}
+	
+	public void clickgiftoptions() throws InterruptedException {
+		 CustomDriver c=new  CustomDriver();
+		 Thread.sleep(4000);
+		 c.elementClick(homepagevase.options, "message");
+		
+		
+	}
+	 List<String>colors=new ArrayList();
+	public List<String>validateColor(String text) {
+		 CustomDriver c=new  CustomDriver();
+
+		 List<WebElement> tagtext = c.getelement(homepagevase.colors, "not found");
+		
+		 for(int i=0;i<tagtext.size();i++) {
+			 colors.add(tagtext.get(i).getAttribute(text));
+		 }
+          System.out.println(colors);
+		 return colors;
+		 
+		 
+
+		
+		
+	}
+	
+
+		public void validateColorclick() {
+			 CustomDriver c=new  CustomDriver();
+
+			 List<WebElement> tagtext = c.getelement(homepagevase.color, "not found");
+			
+			 for(int i=1;i<tagtext.size();i++) {
+				 tagtext.get(i).click();
+	
+			 }
+	       c.elementClick(homepagevase.close, "close the window");
+		}
+	
+	
 	public String getText() {
 		 CustomDriver c=new  CustomDriver();
 		String text=c.getText(homepagevase.vase, "text");
@@ -57,8 +97,6 @@ public class Vaseshomepageactions {
 		 List<WebElement> tagtext = c.getelement(homepagevase.menulinks, "not found");
 		
 		 for(int i=0;i<tagtext.size();i++) {
-		
-			 
 			 tags.add(tagtext.get(i).getAttribute(text));
 		 }
 
@@ -66,6 +104,8 @@ public class Vaseshomepageactions {
 	
 
 	}
+	
+	
 	
 	 List<String>pricestext=new ArrayList();
 	public List<String> getTextpricetext() {
