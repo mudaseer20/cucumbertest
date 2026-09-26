@@ -60,7 +60,7 @@ public class Vaseshomepageactions {
 				 tagtext.get(i).click();
 	
 			 }
-	       c.elementClick(homepagevase.close, "close the window");
+	       c.javascriptClick(homepagevase.close, "close the window");
 		}
 	
 	
@@ -84,12 +84,49 @@ public class Vaseshomepageactions {
 	public void clicklink(String text) {
 		 CustomDriver c=new  CustomDriver();
 		 c.elementClick(homepagevase.roles, text);
+		 	
+	}
+	
+	public void viewcart() {
+		 CustomDriver c=new  CustomDriver();
+		 try {
+			 Thread.sleep(3400);
+		 c.elementClick(homepagevase.viewchart);
+		 System.out.println("clicked");
+		 }
+		 catch(Exception e) {
+			 c.javascriptClick(homepagevase.viewchart, "clicked");
+			 System.out.println("clicked script");
+		 }
+		 	
+	}
+	
+	public String price() {
+		 CustomDriver c=new  CustomDriver();
+		 String text= c.getText(homepagevase.price, "text");
+		 
+		 return text;
+		
+	}
+	
+	public String priceview() {
+		 CustomDriver c=new  CustomDriver();
+		 String text= c.getText(homepagevase.productprice, "text");
+		 
+		 return text;
+		
+	}
+	public void clickcart() throws InterruptedException {
+		 CustomDriver c=new  CustomDriver();
+		 c.scroll(homepagevase.quanti);
+		 Thread.sleep(5000);
+		 c.elementClick(homepagevase.addtocart);
+		
 		 
 		
 		
 		
 	}
-	
 
 	 List<String>tags=new ArrayList();
 	public List<String> getTag(String text) {

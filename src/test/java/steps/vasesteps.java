@@ -133,6 +133,49 @@ public void clickbutton(String text) {
 		
 		
 	}
+	@Then("user clicks on click cart")
+	public void clickcart() throws InterruptedException {
+		Vaseshomepageactions v=new Vaseshomepageactions();
+	v.clickcart();
+		
+			
+		
+	}
 	
+	@Then("user clicks on view cart")
+	public void viewcart() throws InterruptedException {
+		Vaseshomepageactions v=new Vaseshomepageactions();
+		v.viewcart();
+
+		
+			
+		
+	}
+	String price;
+	@Then("user gets the price")
+	public void getprice() throws InterruptedException {
+		Vaseshomepageactions v=new Vaseshomepageactions();
+		Thread.sleep(2900);
+		
+	     price = v.price();
+	    System.out.println(price);
+		
+			
+		
+	}
+	
+	@Then("user gets the price in cart")
+	public void getpriceview() throws InterruptedException {
+		Vaseshomepageactions v=new Vaseshomepageactions();
+		Thread.sleep(2900);
+		String priceview=v.priceview();
+		System.out.println(priceview+"is price");
+		Assert.assertEquals(priceview,price);
+		
+	
+		
+			
+		
+	}
 	
 }

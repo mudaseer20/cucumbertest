@@ -29,4 +29,8 @@ Feature: Validate home page in vases
    
                         
   Then user clicks on color option
+  Then user gets the price
+  Then user clicks on click cart
+  Then user clicks on view cart
+  Then user gets the price in cart
    

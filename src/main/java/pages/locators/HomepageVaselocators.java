@@ -16,8 +16,18 @@ public class HomepageVaselocators {
 	@FindBy(xpath="//span[text()='Gifts']")
 	public WebElement gifts;
 	
+	@FindBy(xpath="//button[contains(@id,'Submit')]/span")
+	public WebElement addtocart;
+	
+	@FindBy(xpath="//label[contains(text(),'Quan')]")
+			public WebElement quanti;
+	
 	  @FindBy(xpath="//span")
 	    public List<WebElement> roles;
+	  
+	  
+	  @FindBy(xpath="//div[@class='product__title']//following::span[contains(@class,'regular')]")
+	  public WebElement price;
 	
     
     @FindBy(xpath="//nav[contains(@class,'menu')]//a/span/../..//*[@href]")
@@ -38,6 +48,15 @@ public class HomepageVaselocators {
     public WebElement options;
     @FindBy(css=".facet-checkbox__text")
     public List<WebElement> categorieslink;
+    
+    @FindBy(xpath="//a[contains(text(),'View cart')]")
+    public WebElement viewchart;
+    
+    @FindBy(xpath="//td[2]//div[contains(text(),'Rs')]")
+    public WebElement productprice;
+    
+
+    
     
   
     
