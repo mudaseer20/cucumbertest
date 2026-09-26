@@ -8,7 +8,9 @@ import java.util.stream.Collectors;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -35,7 +37,17 @@ public class CustomDriver {
 			
 		}
 	}
-	
+	public void elementClick(WebElement element) {
+		try {
+			  Actions actions = new Actions(SeleniumDriver.getDriver());
+			  
+			  actions.moveToElement(element).click().build().perform();;
+			
+		}
+		catch(Exception e) {
+			
+		}
+	}
     public void javascriptClick(WebElement element, String info) {
         try {
             js.executeScript("arguments[0].click();", element);
@@ -189,6 +201,8 @@ public List<String> getelement(List<WebElement> el){
 }
 
 public void elementClick(List<WebElement> el,String text) {
+	 int attempts = 0;
+	    while (attempts < 3) {
 	try {
 	       WebElement elementToClick = el.stream()
 	               .filter(product -> product.getText().trim().toLowerCase().contains(text.toLowerCase()))
@@ -197,20 +211,26 @@ public void elementClick(List<WebElement> el,String text) {
 	       WebDriverWait wait = new WebDriverWait(SeleniumDriver.getDriver(), Duration.ofSeconds(10));
 	     wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(elementToClick)));
 	           elementToClick.click();
+	           break;
 	}
-	catch(Exception e) {
-		  WebElement elementToClick = el.stream()
-	               .filter(product -> product.getText().trim().toLowerCase().contains(text.toLowerCase()))
-	               .findFirst()
-	               .orElseThrow(() -> new NoSuchElementException("Element with text '" + text + "' not found in the list."));
-	       WebDriverWait wait = new WebDriverWait(SeleniumDriver.getDriver(), Duration.ofSeconds(10));
-	     wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(elementToClick)));
-	           elementToClick.click();
+	
+	catch(StaleElementReferenceException e) {
+		
+		 
+	
 	
 	}
 	
-	
+
+	   catch (Exception e) {
+  
+ 
+}
+
+
+	 attempts++;
 	
 	
 }
-}
+	   
+}}
